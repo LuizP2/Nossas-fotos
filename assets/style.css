@@ -1,0 +1,301 @@
+@import url('https://fonts.googleapis.com/css2?family=Charm:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+    --font-size-base: 16px;
+    --primary-color: #45474B;
+    --secondary-color: #938b8b;
+    --tertiary-color: #379777;
+
+    --border-radius-small: 0.25rem;
+    --border-radius-medium: 0.625rem;
+    --border-radius-circle: 50%;
+    --transition-fast: 0.3s;
+
+    font-size: var(--font-size-base);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Montserrat", sans-serif;
+    background-color: var(--secondary-color);
+    width: 100%;
+    height: 100vh;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--secondary-color);
+    width: 100%;
+    padding: 0.6rem 1.2rem;
+    border-bottom: 0.0625rem solid rgba(69, 71, 75, 0.2);
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar .logo {
+    font-family: "Charm", cursive;
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    font-style: italic;
+    font-weight: 400;
+    margin-left: 1rem;
+}
+
+.navbar .logo:hover {
+    cursor: pointer;
+}
+
+.navbar .logo strong {
+    font-weight: 700;
+    color: #45474b;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 0.9375rem;
+    margin-right: 1rem;
+}
+
+/* Botão de Login */
+.login-btn {
+    background-color: black;
+    color: var(--secondary-color);
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius-small);
+    cursor: pointer;
+    transition: background-color var(--transition-fast);
+}
+
+.login-btn:hover {
+    background-color: var(--tertiary-color);
+    color: var(--secondary-color);
+}
+
+/* Link de Cadastro */
+.signup-link {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: bold;
+    transition: color var(--transition-fast);
+}
+
+.signup-link:hover {
+    color: var(--tertiary-color);
+}
+
+/* Profile */
+.profile-container {
+    width: 100%;
+    max-width: 56.25rem;
+    margin: 3.5rem auto;
+    padding: 1.5rem;
+    background-color: var(--secondary-color);
+}
+
+.profile-header {
+    display: flex;
+    align-items: center;
+    padding-bottom: 1.25rem;
+    border-bottom: 1px solid var(--primary-color);
+}
+
+.profile-pic {
+    width: 7.5rem;
+    height: 7.5rem;
+    border-radius: var(--border-radius-circle);
+    margin-right: 1.25rem;
+    border: 3px solid var(--primary-color);
+}
+
+.profile-info h1 {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.profile-info p {
+    font-size: 1rem;
+    color: var(--primary-color);
+    font-weight: 500;
+}
+
+/* Grid de Imagens */
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.4rem;
+    margin-top: 1.25rem;
+}
+
+.image-grid img {
+    width: 100%;
+    height: 16rem;
+    object-fit: cover;
+    transition: transform var(--transition-fast) ease, filter var(--transition-fast) ease;
+}
+
+.image-grid img:hover {
+    transform: scale(1.01);
+    filter: brightness(0.85);
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(1, 3, 4, 0.66);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1.25rem;
+    text-align: center;
+}
+
+.modal-content {
+    display: block;
+    max-width: 70vh;
+    max-height: 70vh;
+    border-radius: var(--border-radius-medium);
+    margin: 2rem auto 0.5rem;
+}
+
+#caption {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    padding: 1.8rem;
+    border-radius: 0.3125rem;
+    max-width: 69vh;
+    margin: 0 auto;
+    box-sizing: border-box;
+    line-height: 1.5;
+    font-weight: 500;
+}
+
+.close {
+    position: absolute;
+    top: 2.5rem;
+    right: 36rem;
+    color: var(--secondary-color);
+    font-size: 3rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: var(--secondary-color);
+}
+
+/* Responsividade */
+@media (max-width: 480px) {
+
+    .navbar .logo {
+        font-size: 1.5rem;
+    }
+
+    .nav-links {
+        gap: 0.9rem;
+        font-size: 0.75rem;
+    }
+
+    .profile-pic {
+        width: 4rem;
+        height: 4rem;
+        margin-right: 1rem;
+    }
+
+    .profile-info h1 {
+        font-size: 1rem;
+    }
+
+    .profile-info p {
+        font-size: 0.75rem;
+    }
+
+    .image-grid {
+        width: 1vh;
+    }
+
+    .image-grid img {
+        width: 6.5rem;
+        height: 6.5rem;
+    }
+
+    .modal-content {
+        max-width: 80%;
+        max-height: 80vh;
+    }
+
+    .close {
+        right: 1.5rem;
+        font-size: 2rem;
+        top: 2.75rem;
+    }
+
+    #caption {
+        max-width: 80%;
+        font-size: 0.8rem;
+        padding: 1rem;
+        line-height: 1.2;
+    }
+}
+
+@media (min-width: 481px) and (max-width: 868px) {
+    .image-grid {
+        grid-template-columns: repeat(3, 1fr);
+        margin-left: 1rem;
+    }
+
+    .image-grid img {
+        width: 15rem;
+        height: 14rem;
+    }
+
+    .modal-content {
+        margin-top: 1rem;
+        max-width: 60%;
+        max-height: 70vh;
+    }
+
+    .close {
+        font-size: 2.5rem;
+        top: 1.9rem;
+        right: 4rem;
+    }
+
+    #caption {
+        font-size: 1rem;
+        max-width: 60%;
+        padding: 1.4rem;
+        line-height: 1.4;
+    }
+
+    .image-grid img:hover {
+        transform: scale(1.05);
+    }
+
+    .profile-info p {
+        font-size: 0.75rem;
+        color: var(--primary-color);
+        font-weight: 500;
+    }
+}
